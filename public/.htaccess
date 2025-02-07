@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Si le dossier ou fichier existe, ne pas réécrire
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Retirer mvc-frem/public de l'URL
+RewriteBase /mvc-frem/public/
+
+# Rediriger toutes les requêtes vers index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
