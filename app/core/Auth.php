@@ -26,7 +26,7 @@ class Auth
         if (!Session::has('user_id')) {
             return null;
         }
-        return Session::get('user_id', null, false);
+        return Session::get('user_id');
     }
     
     public static function hasRole($role)
@@ -34,6 +34,6 @@ class Auth
         if (!Session::has('user_role')) {
             return false;
         }
-        return Session::get('user_role', null, false) === $role;
+        return Session::get('user_role') === $role;
     }
 }

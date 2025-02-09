@@ -17,18 +17,16 @@ class Session
         $_SESSION[$key] = $value;
     }
     
-    public static function get($key, $default = null, $remove = false)
+    public static function get($key)
     {
         self::start();
         if (!isset($_SESSION[$key])) {
-            return $default;
+            return null;
         }
         
         $value = $_SESSION[$key];
         
-        if ($remove) {
-            unset($_SESSION[$key]);
-        }
+
         
         return $value;
     }
